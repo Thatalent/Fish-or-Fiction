@@ -138,8 +138,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Temporary files
-tmp/
-Backend/.data/
-
+.env
+.vscode/
 .DS_Store
