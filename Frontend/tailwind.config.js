@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         lilitaone: ['"Lilita One"', "sans-serif"],
+        inter: ['"Inter"', "sans-serif"],
       },
       colors: {
         primary: {
