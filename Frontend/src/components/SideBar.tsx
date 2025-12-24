@@ -2,9 +2,17 @@ import info from '../images-videos/Info_LP.svg';
 import settings from '../images-videos/Settings_LP.svg';
 import trophy from '../images-videos/Trophy_LP.svg';
 
-function SideBar({ needed = ['info', 'settings', 'trophy'] }) {
+interface SideBarProps {
+  needed?: string[];
+  pos?: string;
+}
+
+function SideBar({
+  needed = ['info', 'settings', 'trophy'],
+  pos,
+}: SideBarProps) {
   return (
-    <div className="absolute right-0 top-[241px] z-10 flex flex-col gap-[24px]">
+    <div className={`absolute ${pos} z-10 flex flex-col gap-[24px]`}>
       {needed.includes('info') && (
         <button className="landing_page_buttons_side">
           <img

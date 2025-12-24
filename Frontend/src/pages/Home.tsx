@@ -55,7 +55,7 @@ function Home() {
           </button>
         </div>
       </Box>
-      <SideBar />
+      <SideBar pos={'right-0 top-[241px]'} />
     </>
   );
 }
