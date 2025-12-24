@@ -9,7 +9,7 @@ import {
 import { useQuery, gql } from '@apollo/client';
 
 import main_bg from '../images-videos/main-bg.mp4';
-import SideBar from './SideBar';
+import SideBar from '../components/SideBar';
 
 // Example GraphQL query - replace with your actual schema
 // const GET_FISH_QUESTIONS = gql`
