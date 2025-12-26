@@ -5,10 +5,15 @@ import Menu from './components/Menu';
 import { useState } from 'react';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleSettingsMenuToggle = () => {};
+
+  const handleHelpMenuToggle = () => {};
 
   return (
     <>
@@ -20,8 +25,14 @@ function App() {
           />
         </Routes>
       </Box>
-      <Menu isOpened={isMenuOpen} title={'Test'}>
-        <button></button>
+      <Menu isOpened={isMenuOpen} title={'Settings'}>
+        <button className="buttons_menu buttons_menu_disabled">LANGUAGE</button>
+        <button className="buttons_menu buttons_menu_disabled">
+          HIGH CONTRAST
+        </button>
+        <button className="buttons_menu buttons_menu_disabled">
+          SCREEN READER
+        </button>
       </Menu>
     </>
   );

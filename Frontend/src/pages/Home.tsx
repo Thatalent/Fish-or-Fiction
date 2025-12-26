@@ -51,10 +51,10 @@ function Home({ handleMenuToggle }: HomeProps) {
         </h1>
 
         <div className="absolute bottom-[208px] z-10 flex h-[120px] w-full justify-center gap-[215px]">
-          <button className="landing_page_buttons_main landing_page_buttons_main-disabled w-[513px]">
+          <button className="buttons buttons_disabled w-[513px] pb-[29.5px] pt-[29.5px]">
             SINGLE PLAYER
           </button>
-          <button className="landing_page_buttons_main landing_page_buttons_main-disabled w-[595px]">
+          <button className="buttons buttons_disabled w-[595px] pb-[29.5px] pt-[29.5px]">
             COMPETITVE MODE
           </button>
         </div>

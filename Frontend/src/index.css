@@ -15,13 +15,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.landing_page_buttons_main {
-  @apply rounded-[20px] border-none p-[10px] text-center align-middle font-inter text-[50px] font-bold leading-none text-white [background:linear-gradient(180deg,#1B3567_82.21%,#22478E_100%)] [box-shadow:0px_4px_4px_0px_rgba(0,0,0,0.25)] hover:cursor-pointer hover:text-[#FCBB23] disabled:text-white disabled:hover:cursor-default disabled:hover:text-white;
+.buttons {
+  @apply rounded-[20px] border-none text-center align-middle font-inter text-[50px] font-bold leading-none text-white [background:linear-gradient(180deg,#1B3567_82.21%,#22478E_100%)] [box-shadow:0px_4px_4px_0px_rgba(0,0,0,0.25)] hover:cursor-pointer hover:text-[#FCBB23] disabled:text-white disabled:hover:cursor-default disabled:hover:text-white;
 }
-.landing_page_buttons_main-disabled {
+.buttons_disabled,
+.buttons_menu_disabled {
   @apply disabled:[background:linear-gradient(180deg,#636363_82.21%,#898989_100%)];
 }
 
-.landing_page_buttons_side {
+.buttons_side {
   @apply m-0 h-[90px] w-[125px] rounded-bl-[31px] rounded-tl-[31px] border-none bg-white p-0 leading-none hover:cursor-pointer;
+}
+
+.buttons_menu {
+  @apply w-[381px] rounded-[20px] border-none pb-[21px] pt-[21px] text-center align-middle font-inter text-[40px] font-bold leading-none tracking-normal text-white [background:linear-gradient(180deg,#1B3567_82.21%,#22478E_100%)] [box-shadow:0px_4px_4px_0px_rgba(0,0,0,0.25)] hover:cursor-pointer hover:text-[#FCBB23] disabled:text-white disabled:hover:cursor-default disabled:hover:text-white;
 }

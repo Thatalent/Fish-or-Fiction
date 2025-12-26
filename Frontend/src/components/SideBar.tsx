@@ -9,17 +9,14 @@ interface SideBarProps {
 }
 
 function SideBar({
-  needed = ['info', 'settings', 'trophy'],
+  needed = ['help', 'settings', 'trophy'],
   pos,
   handleMenuToggle,
 }: SideBarProps) {
   return (
     <div className={`absolute ${pos} z-30 flex flex-col gap-[24px]`}>
-      {needed.includes('info') && (
-        <button
-          onClick={handleMenuToggle}
-          className="landing_page_buttons_side"
-        >
+      {needed.includes('help') && (
+        <button onClick={handleMenuToggle} className="buttons_side">
           <img
             className="h-[75px] w-[75px]"
             src={info}
@@ -29,7 +26,7 @@ function SideBar({
         </button>
       )}
       {needed.includes('settings') && (
-        <button className="landing_page_buttons_side">
+        <button onClick={handleMenuToggle} className="buttons_side">
           {' '}
           <img
             className="h-[70px] w-[75px]"
@@ -40,7 +37,7 @@ function SideBar({
         </button>
       )}
       {needed.includes('trophy') && (
-        <button className="landing_page_buttons_side">
+        <button className="buttons_side">
           {' '}
           <img
             className="h-[61px] w-[76px]"
