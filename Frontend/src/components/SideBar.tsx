@@ -5,18 +5,20 @@ import trophy from '../images-videos/Trophy_LP.svg';
 interface SideBarProps {
   needed?: string[];
   pos?: string;
-  handleMenuToggle?: () => void;
+  handleSettingsMenuToggle?: () => void;
+  handleHelpMenuToggle?: () => void;
 }
 
 function SideBar({
   needed = ['help', 'settings', 'trophy'],
   pos,
-  handleMenuToggle,
+  handleHelpMenuToggle,
+  handleSettingsMenuToggle,
 }: SideBarProps) {
   return (
     <div className={`absolute ${pos} z-30 flex flex-col gap-[24px]`}>
       {needed.includes('help') && (
-        <button onClick={handleMenuToggle} className="buttons_side">
+        <button onClick={handleHelpMenuToggle} className="buttons_side">
           <img
             className="h-[75px] w-[75px]"
             src={info}
@@ -26,7 +28,7 @@ function SideBar({
         </button>
       )}
       {needed.includes('settings') && (
-        <button onClick={handleMenuToggle} className="buttons_side">
+        <button onClick={handleSettingsMenuToggle} className="buttons_side">
           {' '}
           <img
             className="h-[70px] w-[75px]"

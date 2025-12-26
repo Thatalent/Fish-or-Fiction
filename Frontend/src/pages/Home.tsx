@@ -25,10 +25,11 @@ import SideBar from '../components/SideBar';
 // `
 
 interface HomeProps {
-  handleMenuToggle?: () => void;
+  handleSettingsMenuToggle?: () => void;
+  handleHelpMenuToggle?: () => void;
 }
 
-function Home({ handleMenuToggle }: HomeProps) {
+function Home({ handleHelpMenuToggle, handleSettingsMenuToggle }: HomeProps) {
   // const { loading, error, data } = useQuery(GET_FISH_QUESTIONS)
 
   // if (loading) return <Typography>Loading...</Typography>
@@ -60,7 +61,8 @@ function Home({ handleMenuToggle }: HomeProps) {
         </div>
       </Box>
       <SideBar
-        handleMenuToggle={handleMenuToggle}
+        handleSettingsMenuToggle={handleSettingsMenuToggle}
+        handleHelpMenuToggle={handleHelpMenuToggle}
         pos={'right-0 top-[241px]'}
       />
     </>

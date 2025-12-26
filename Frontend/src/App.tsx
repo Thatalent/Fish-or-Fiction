@@ -1,19 +1,27 @@
 import { Routes, Route } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
 import Home from './pages/Home';
-import Menu from './components/Menu';
+
 import { useState } from 'react';
+import SettingsMenu from './components/SettingsMenu';
+import HelpMenu from './components/HelpMenu';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  type MenuType = 'help' | 'settings' | null;
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const [activeMenu, setActiveMenu] = useState<MenuType>(null);
+
+  const toggleMenu = (menu: MenuType) => {
+    setActiveMenu((prev) => (prev === menu ? null : menu));
   };
 
-  const handleSettingsMenuToggle = () => {};
+  const handleSettingsMenuToggle = () => {
+    toggleMenu('settings');
+  };
 
-  const handleHelpMenuToggle = () => {};
+  const handleHelpMenuToggle = () => {
+    toggleMenu('help');
+  };
 
   return (
     <>
@@ -21,19 +29,18 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home handleMenuToggle={handleMenuToggle} />}
+            element={
+              <Home
+                handleSettingsMenuToggle={handleSettingsMenuToggle}
+                handleHelpMenuToggle={handleHelpMenuToggle}
+              />
+            }
           />
         </Routes>
       </Box>
-      <Menu isOpened={isMenuOpen} title={'Settings'}>
-        <button className="buttons_menu buttons_menu_disabled">LANGUAGE</button>
-        <button className="buttons_menu buttons_menu_disabled">
-          HIGH CONTRAST
-        </button>
-        <button className="buttons_menu buttons_menu_disabled">
-          SCREEN READER
-        </button>
-      </Menu>
+
+      <SettingsMenu isMenuOpen={activeMenu === 'settings'} />
+      <HelpMenu isMenuOpen={activeMenu === 'help'} />
     </>
   );
 }
