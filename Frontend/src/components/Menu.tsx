@@ -7,7 +7,7 @@ interface MenuProps {
   pos?: string;
 }
 
-function Menu({ title, isOpened, pos = 'top-[355px]', children }: MenuProps) {
+function Menu({ title, isOpened, pos, children }: MenuProps) {
   const buttons = React.Children.toArray(children)
     .filter((child) => {
       if (React.isValidElement(child) && child.type === 'button') {
