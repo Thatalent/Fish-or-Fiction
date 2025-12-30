@@ -10,6 +10,8 @@ import { useQuery, gql } from '@apollo/client';
 
 import main_bg from '../images-videos/main-bg.mp4';
 import SideBar from '../components/SideBar';
+// App.tsx
+import { MenuType } from '../types';
 
 // Example GraphQL query - replace with your actual schema
 // const GET_FISH_QUESTIONS = gql`
@@ -27,9 +29,14 @@ import SideBar from '../components/SideBar';
 interface HomeProps {
   handleSettingsMenuToggle?: () => void;
   handleHelpMenuToggle?: () => void;
+  activeMenu?: MenuType;
 }
 
-function Home({ handleHelpMenuToggle, handleSettingsMenuToggle }: HomeProps) {
+function Home({
+  handleHelpMenuToggle,
+  handleSettingsMenuToggle,
+  activeMenu,
+}: HomeProps) {
   // const { loading, error, data } = useQuery(GET_FISH_QUESTIONS)
 
   // if (loading) return <Typography>Loading...</Typography>
@@ -64,6 +71,7 @@ function Home({ handleHelpMenuToggle, handleSettingsMenuToggle }: HomeProps) {
         handleSettingsMenuToggle={handleSettingsMenuToggle}
         handleHelpMenuToggle={handleHelpMenuToggle}
         pos={'right-0 top-[241px]'}
+        activeMenu={activeMenu}
       />
     </>
   );

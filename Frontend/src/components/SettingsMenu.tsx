@@ -8,7 +8,11 @@ interface SettingsMenuProps {
 function SettingsMenu({ isMenuOpen }: SettingsMenuProps) {
   return (
     <>
-      <Menu isOpened={isMenuOpen} title={'Settings'} pos={'top-[355px]'}>
+      <Menu
+        isOpened={isMenuOpen}
+        title={'Settings'}
+        pos={' absolute right-[166px] top-[355px]'}
+      >
         <button className="buttons_menu buttons_menu_disabled">LANGUAGE</button>
         <button className="buttons_menu buttons_menu_disabled">
           HIGH CONTRAST

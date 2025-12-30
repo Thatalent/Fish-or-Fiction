@@ -5,10 +5,9 @@ import Home from './pages/Home';
 import { useState } from 'react';
 import SettingsMenu from './components/SettingsMenu';
 import HelpMenu from './components/HelpMenu';
+import { MenuType } from './types';
 
 function App() {
-  type MenuType = 'help' | 'settings' | null;
-
   const [activeMenu, setActiveMenu] = useState<MenuType>(null);
 
   const toggleMenu = (menu: MenuType) => {
@@ -33,6 +32,7 @@ function App() {
               <Home
                 handleSettingsMenuToggle={handleSettingsMenuToggle}
                 handleHelpMenuToggle={handleHelpMenuToggle}
+                activeMenu={activeMenu}
               />
             }
           />

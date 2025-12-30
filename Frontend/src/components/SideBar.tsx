@@ -1,12 +1,14 @@
 import info from '../images-videos/Info_LP.svg';
 import settings from '../images-videos/Settings_LP.svg';
 import trophy from '../images-videos/Trophy_LP.svg';
+import { MenuType } from '../types';
 
 interface SideBarProps {
   needed?: string[];
   pos?: string;
   handleSettingsMenuToggle?: () => void;
   handleHelpMenuToggle?: () => void;
+  activeMenu?: MenuType;
 }
 
 function SideBar({
@@ -14,6 +16,7 @@ function SideBar({
   pos,
   handleHelpMenuToggle,
   handleSettingsMenuToggle,
+  activeMenu,
 }: SideBarProps) {
   return (
     <div className={`absolute ${pos} z-30 flex flex-col gap-[24px]`}>
