@@ -16,6 +16,7 @@ import {
   password,
   timestamp,
   select,
+  checkbox,
 } from '@keystone-6/core/fields'
 
 // the document field is a more complicated field, so it has it's own package
@@ -67,6 +68,16 @@ export const lists = {
           formatting: true,
           validation: { isRequired: true } }),
     },
+  }),
+  
+  Question: list({
+    access: allowAll,
+    fields:{
+      question: text({validation: {isRequired: true}}),
+      answer: checkbox({defaultValue: false}),
+      correctResponse: text({validation: {isRequired: true}}),
+      incorrectResponse: text({validation: {isRequired: true}})
+    }
   }),
 
   Post: list({
