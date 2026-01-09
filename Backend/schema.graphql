@@ -257,6 +257,58 @@ input TagRelateToManyForCreateInput {
   connect: [TagWhereUniqueInput!]
 }
 
+type Locale {
+  id: ID!
+  code: String
+  name: String
+  isActive: Boolean
+}
+
+input LocaleWhereUniqueInput {
+  id: ID
+  code: String
+  name: String
+}
+
+input LocaleWhereInput {
+  AND: [LocaleWhereInput!]
+  OR: [LocaleWhereInput!]
+  NOT: [LocaleWhereInput!]
+  id: IDFilter
+  code: StringFilter
+  name: StringFilter
+  isActive: BooleanFilter
+}
+
+input BooleanFilter {
+  equals: Boolean
+  not: BooleanFilter
+}
+
+input LocaleOrderByInput {
+  id: OrderDirection
+  code: OrderDirection
+  name: OrderDirection
+  isActive: OrderDirection
+}
+
+input LocaleUpdateInput {
+  code: String
+  name: String
+  isActive: Boolean
+}
+
+input LocaleUpdateArgs {
+  where: LocaleWhereUniqueInput!
+  data: LocaleUpdateInput!
+}
+
+input LocaleCreateInput {
+  code: String
+  name: String
+  isActive: Boolean
+}
+
 type Tag {
   id: ID!
   name: String
@@ -321,6 +373,12 @@ type Mutation {
   updatePosts(data: [PostUpdateArgs!]!): [Post]
   deletePost(where: PostWhereUniqueInput!): Post
   deletePosts(where: [PostWhereUniqueInput!]!): [Post]
+  createLocale(data: LocaleCreateInput!): Locale
+  createLocales(data: [LocaleCreateInput!]!): [Locale]
+  updateLocale(where: LocaleWhereUniqueInput!, data: LocaleUpdateInput!): Locale
+  updateLocales(data: [LocaleUpdateArgs!]!): [Locale]
+  deleteLocale(where: LocaleWhereUniqueInput!): Locale
+  deleteLocales(where: [LocaleWhereUniqueInput!]!): [Locale]
   createTag(data: TagCreateInput!): Tag
   createTags(data: [TagCreateInput!]!): [Tag]
   updateTag(where: TagWhereUniqueInput!, data: TagUpdateInput!): Tag
@@ -359,6 +417,9 @@ type Query {
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput! = {}, orderBy: [PostOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PostWhereUniqueInput): [Post!]
   postsCount(where: PostWhereInput! = {}): Int
+  locale(where: LocaleWhereUniqueInput!): Locale
+  locales(where: LocaleWhereInput! = {}, orderBy: [LocaleOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: LocaleWhereUniqueInput): [Locale!]
+  localesCount(where: LocaleWhereInput! = {}): Int
   tag(where: TagWhereUniqueInput!): Tag
   tags(where: TagWhereInput! = {}, orderBy: [TagOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: TagWhereUniqueInput): [Tag!]
   tagsCount(where: TagWhereInput! = {}): Int

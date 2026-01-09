@@ -16,6 +16,7 @@ import {
   password,
   timestamp,
   select,
+  checkbox,
 } from '@keystone-6/core/fields'
 
 // the document field is a more complicated field, so it has it's own package
@@ -134,7 +135,14 @@ export const lists = {
       }),
     },
   }),
-
+  Locale: list({
+    access: allowAll,
+    fields: {
+      code: text({validation:{isRequired: true}, isIndexed: 'unique'}),
+      name: text({validation:{isRequired: true}, isIndexed:'unique'}),
+      isActive: checkbox({defaultValue: true}),
+    }
+  }),
   // this last list is our Tag list, it only has a name field for now
   Tag: list({
     // WARNING

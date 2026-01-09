@@ -11,7 +11,6 @@ services:
       - ./.data/pg:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
   keystone:
     build:
       context: .
