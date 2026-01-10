@@ -1,6 +1,6 @@
-'use client';
-import * as React from 'react';
-import LanguageContext from "../contexts/LanguageContext"
+"use client";
+import * as React from "react";
+import LanguageContext from "../contexts/LanguageContext";
 import { useContext, useState } from "react";
 
 const languages = [
@@ -21,48 +21,49 @@ const languages = [
 ];
 
 const LanguageSection: React.FC = () => {
+  const language = useContext(LanguageContext);
 
-const language = useContext(LanguageContext);
+  const [value, setValue] = useState<string>(language || "en");
 
-
-const [value, setValue] = useState<string>(language || 'en');
-
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  setValue(value);
-  console.log(`selected langauge: ${value}`);
-}
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setValue(value);
+    console.log(`selected langauge: ${value}`);
+  };
 
   return (
     <form>
       <div>
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-6">
-        {languages.map((lang) => (
-          <label key={lang} className="flex items-center gap-2 cursor-pointer font-inter font-bold text-5xl-custom">
-            <input
-              type="radio"
-              name="language"
-              value={lang}
-              className="w-10 h-10 accent-white cursor-pointer"
-              checked={value === lang}
-              onChange={() => setValue(lang)}
-            />
-            {lang}
-          </label>
-        ))}
-      </div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3 mb-6">
+          {languages.map((lang) => (
+            <label
+              key={lang}
+              className="flex items-center gap-2 cursor-pointer font-inter font-bold text-5xl-custom"
+            >
+              <input
+                type="radio"
+                name="language"
+                value={lang}
+                className="w-10 h-10 accent-white cursor-pointer"
+                checked={value === lang}
+                onChange={() => setValue(lang)}
+              />
+              {lang}
+            </label>
+          ))}
+        </div>
 
-      {/* Save button */}
-      <button
-        onClick={handleSubmit}
-        className="w-full
+        {/* Save button */}
+        <button
+          onClick={handleSubmit}
+          className="w-full
         bg-deepSeaBlue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors
         font-inter font-bold text-5xl-custom cursor-pointer"
-      >
-        SAVE
-      </button>
-    </div>
-    {/* <RadioGroup
+        >
+          SAVE
+        </button>
+      </div>
+      {/* <RadioGroup
       aria-labelledby={id}
       value={value}
       onValueChange={(nextValue) => {
@@ -120,6 +121,6 @@ const handleSubmit = (e: React.FormEvent) => {
     </Button> */}
     </form>
   );
-}
+};
 
 export default LanguageSection;
