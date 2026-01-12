@@ -3,16 +3,16 @@ import {useState} from "react";
 import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material'
 import Home from './pages/Home'
 import LanguageContext from './contexts/LanguageContext';
+import type { Language } from './contexts/LanguageContext';
 import SettingsPage from './pages/Settings';
 
 function App() {
-  type Language = "en" | "es" | "da" |"nl" | "fil" | "fr"|"de" | "hi" | "it"|"ja" | "zh" | "pt"| "ru" | "ar";
+
 
   const [language, setLanguage] = useState<Language>("en");
 
-
   return (
-    <LanguageContext.Provider value={language}>
+    <LanguageContext.Provider value={{language, setLanguage}}>
     <Box className="min-h-screen bg-gray-50">
       <AppBar position="static" elevation={0} className="bg-white shadow-sm">
         <Toolbar>
