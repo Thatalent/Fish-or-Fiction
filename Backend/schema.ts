@@ -74,7 +74,7 @@ export const lists = {
     access: allowAll,
     fields:{
       question: text({validation: {isRequired: true}}),
-      answer: checkbox({defaultValue: false}),
+      isFact: checkbox({defaultValue: false}),
       correctResponse: text({validation: {isRequired: true}}),
       incorrectResponse: text({validation: {isRequired: true}})
     }
