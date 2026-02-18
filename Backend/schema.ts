@@ -145,7 +145,14 @@ export const lists = {
       }),
     },
   }),
-
+  Locale: list({
+    access: allowAll,
+    fields: {
+      code: text({validation:{isRequired: true}, isIndexed: 'unique'}),
+      name: text({validation:{isRequired: true}, isIndexed:'unique'}),
+      isActive: checkbox({defaultValue: true}),
+    }
+  }),
   // this last list is our Tag list, it only has a name field for now
   Tag: list({
     // WARNING

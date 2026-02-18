@@ -44,6 +44,13 @@ model Post {
   @@index([authorId])
 }
 
+model Locale {
+  id       String  @id @default(cuid())
+  code     String  @unique @default("")
+  name     String  @unique @default("")
+  isActive Boolean @default(true)
+}
+
 model Tag {
   id    String @id @default(cuid())
   name  String @default("")
