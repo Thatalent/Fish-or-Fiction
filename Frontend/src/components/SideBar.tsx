@@ -1,20 +1,27 @@
 import info from '../images-videos/Info_LP.svg';
 import settings from '../images-videos/Settings_LP.svg';
 import trophy from '../images-videos/Trophy_LP.svg';
+import { MenuType } from '../types';
 
 interface SideBarProps {
   needed?: string[];
   pos?: string;
+  handleSettingsMenuToggle?: () => void;
+  handleHelpMenuToggle?: () => void;
+  activeMenu?: MenuType;
 }
 
 function SideBar({
-  needed = ['info', 'settings', 'trophy'],
+  needed = ['help', 'settings', 'trophy'],
   pos,
+  handleHelpMenuToggle,
+  handleSettingsMenuToggle,
+  activeMenu,
 }: SideBarProps) {
   return (
-    <div className={`absolute ${pos} z-10 flex flex-col gap-[24px]`}>
-      {needed.includes('info') && (
-        <button className="landing_page_buttons_side">
+    <div className={`absolute ${pos} z-30 flex flex-col gap-[24px]`}>
+      {needed.includes('help') && (
+        <button onClick={handleHelpMenuToggle} className="buttons_side">
           <img
             className="h-[75px] w-[75px]"
             src={info}
@@ -24,7 +31,7 @@ function SideBar({
         </button>
       )}
       {needed.includes('settings') && (
-        <button className="landing_page_buttons_side">
+        <button onClick={handleSettingsMenuToggle} className="buttons_side">
           {' '}
           <img
             className="h-[70px] w-[75px]"
@@ -35,7 +42,7 @@ function SideBar({
         </button>
       )}
       {needed.includes('trophy') && (
-        <button className="landing_page_buttons_side">
+        <button className="buttons_side">
           {' '}
           <img
             className="h-[61px] w-[76px]"
