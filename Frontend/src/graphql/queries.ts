@@ -1,5 +1,20 @@
 import { gql } from '@apollo/client'
 
+export const GET_QUESTION = gql`
+  query GetQuestion($id:ID!){
+    question(where: {id : $id}){
+        id
+        question
+        isFact
+        correctResponse
+        incorrectResponse
+    }
+  }
+`
+export const GET_QUESTION_IDS = gql `
+query GetQuestionIds{
+questions(orderBy: [{id: asc}]){id}}`
+
 // Example queries - replace with your actual GraphQL schema
 export const GET_WILDLANDS = gql`
   query GetWildlands {

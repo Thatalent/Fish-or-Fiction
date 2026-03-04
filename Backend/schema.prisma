@@ -28,7 +28,7 @@ model Footer {
 model Question {
   id                String  @id @default(cuid())
   question          String  @default("")
-  answer            Boolean @default(false)
+  isFact            Boolean @default(false)
   correctResponse   String  @default("")
   incorrectResponse String  @default("")
 }

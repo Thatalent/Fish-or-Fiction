@@ -180,7 +180,7 @@ input FooterCreateInput {
 type Question {
   id: ID!
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }
@@ -195,7 +195,7 @@ input QuestionWhereInput {
   NOT: [QuestionWhereInput!]
   id: IDFilter
   question: StringFilter
-  answer: BooleanFilter
+  isFact: BooleanFilter
   correctResponse: StringFilter
   incorrectResponse: StringFilter
 }
@@ -208,14 +208,14 @@ input BooleanFilter {
 input QuestionOrderByInput {
   id: OrderDirection
   question: OrderDirection
-  answer: OrderDirection
+  isFact: OrderDirection
   correctResponse: OrderDirection
   incorrectResponse: OrderDirection
 }
 
 input QuestionUpdateInput {
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }
@@ -227,7 +227,7 @@ input QuestionUpdateArgs {
 
 input QuestionCreateInput {
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }

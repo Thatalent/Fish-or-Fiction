@@ -76,7 +76,7 @@ export const lists = {
       question: text({validation: {isRequired: true}}),
       isFact: checkbox({defaultValue: false}),
       correctResponse: text({validation: {isRequired: true}}),
-      incorrectResponse: text({validation: {isRequired: true}})
+      incorrectResponse: text({validation: {isRequired: true}}),
     }
   }),
 
