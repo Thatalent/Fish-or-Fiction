@@ -177,6 +177,61 @@ input FooterCreateInput {
   text: JSON
 }
 
+type Question {
+  id: ID!
+  question: String
+  answer: Boolean
+  correctResponse: String
+  incorrectResponse: String
+}
+
+input QuestionWhereUniqueInput {
+  id: ID
+}
+
+input QuestionWhereInput {
+  AND: [QuestionWhereInput!]
+  OR: [QuestionWhereInput!]
+  NOT: [QuestionWhereInput!]
+  id: IDFilter
+  question: StringFilter
+  answer: BooleanFilter
+  correctResponse: StringFilter
+  incorrectResponse: StringFilter
+}
+
+input BooleanFilter {
+  equals: Boolean
+  not: BooleanFilter
+}
+
+input QuestionOrderByInput {
+  id: OrderDirection
+  question: OrderDirection
+  answer: OrderDirection
+  correctResponse: OrderDirection
+  incorrectResponse: OrderDirection
+}
+
+input QuestionUpdateInput {
+  question: String
+  answer: Boolean
+  correctResponse: String
+  incorrectResponse: String
+}
+
+input QuestionUpdateArgs {
+  where: QuestionWhereUniqueInput!
+  data: QuestionUpdateInput!
+}
+
+input QuestionCreateInput {
+  question: String
+  answer: Boolean
+  correctResponse: String
+  incorrectResponse: String
+}
+
 type Post {
   id: ID!
   title: String
@@ -367,6 +422,12 @@ type Mutation {
   updateFooters(data: [FooterUpdateArgs!]!): [Footer]
   deleteFooter(where: FooterWhereUniqueInput!): Footer
   deleteFooters(where: [FooterWhereUniqueInput!]!): [Footer]
+  createQuestion(data: QuestionCreateInput!): Question
+  createQuestions(data: [QuestionCreateInput!]!): [Question]
+  updateQuestion(where: QuestionWhereUniqueInput!, data: QuestionUpdateInput!): Question
+  updateQuestions(data: [QuestionUpdateArgs!]!): [Question]
+  deleteQuestion(where: QuestionWhereUniqueInput!): Question
+  deleteQuestions(where: [QuestionWhereUniqueInput!]!): [Question]
   createPost(data: PostCreateInput!): Post
   createPosts(data: [PostCreateInput!]!): [Post]
   updatePost(where: PostWhereUniqueInput!, data: PostUpdateInput!): Post
@@ -414,6 +475,9 @@ type Query {
   footer(where: FooterWhereUniqueInput!): Footer
   footers(where: FooterWhereInput! = {}, orderBy: [FooterOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: FooterWhereUniqueInput): [Footer!]
   footersCount(where: FooterWhereInput! = {}): Int
+  question(where: QuestionWhereUniqueInput!): Question
+  questions(where: QuestionWhereInput! = {}, orderBy: [QuestionOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: QuestionWhereUniqueInput): [Question!]
+  questionsCount(where: QuestionWhereInput! = {}): Int
   post(where: PostWhereUniqueInput!): Post
   posts(where: PostWhereInput! = {}, orderBy: [PostOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PostWhereUniqueInput): [Post!]
   postsCount(where: PostWhereInput! = {}): Int

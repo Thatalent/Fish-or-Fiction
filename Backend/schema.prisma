@@ -25,6 +25,14 @@ model Footer {
   text Json   @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
 }
 
+model Question {
+  id                String  @id @default(cuid())
+  question          String  @default("")
+  answer            Boolean @default(false)
+  correctResponse   String  @default("")
+  incorrectResponse String  @default("")
+}
+
 model Post {
   id       String  @id @default(cuid())
   title    String  @default("")

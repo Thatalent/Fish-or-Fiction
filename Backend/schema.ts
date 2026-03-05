@@ -69,6 +69,16 @@ export const lists = {
           validation: { isRequired: true } }),
     },
   }),
+  
+  Question: list({
+    access: allowAll,
+    fields:{
+      question: text({validation: {isRequired: true}}),
+      isFact: checkbox({defaultValue: false}),
+      correctResponse: text({validation: {isRequired: true}}),
+      incorrectResponse: text({validation: {isRequired: true}})
+    }
+  }),
 
   Post: list({
     // WARNING

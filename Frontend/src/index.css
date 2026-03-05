@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,9 +8,25 @@
 /* Custom styles can be added here */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.buttons {
+  @apply rounded-[20px] border-none text-center align-middle font-inter text-[50px] font-bold leading-none text-white [background:linear-gradient(180deg,#1B3567_82.21%,#22478E_100%)] [box-shadow:0px_4px_4px_0px_rgba(0,0,0,0.25)] hover:cursor-pointer hover:text-[#FCBB23] disabled:text-white disabled:hover:cursor-default disabled:hover:text-white;
+}
+.buttons_disabled,
+.buttons_menu_disabled {
+  @apply disabled:[background:linear-gradient(180deg,#636363_82.21%,#898989_100%)];
+}
+
+.buttons_side {
+  @apply m-0 h-[90px] w-[125px] rounded-bl-[31px] rounded-tl-[31px] border-none bg-white p-0 leading-none hover:cursor-pointer;
+}
+
+.buttons_menu {
+  @apply w-[381px] rounded-[20px] border-none pb-[21px] pt-[21px] text-center align-middle font-inter text-[40px] font-bold leading-none tracking-normal text-white [background:linear-gradient(180deg,#1B3567_82.21%,#22478E_100%)] [box-shadow:0px_4px_4px_0px_rgba(0,0,0,0.25)] hover:cursor-pointer hover:text-[#FCBB23] disabled:text-white disabled:hover:cursor-default disabled:hover:text-white;
 }
