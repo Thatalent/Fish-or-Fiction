@@ -180,7 +180,7 @@ input FooterCreateInput {
 type Question {
   id: ID!
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }
@@ -195,7 +195,7 @@ input QuestionWhereInput {
   NOT: [QuestionWhereInput!]
   id: IDFilter
   question: StringFilter
-  answer: BooleanFilter
+  isFact: BooleanFilter
   correctResponse: StringFilter
   incorrectResponse: StringFilter
 }
@@ -208,14 +208,14 @@ input BooleanFilter {
 input QuestionOrderByInput {
   id: OrderDirection
   question: OrderDirection
-  answer: OrderDirection
+  isFact: OrderDirection
   correctResponse: OrderDirection
   incorrectResponse: OrderDirection
 }
 
 input QuestionUpdateInput {
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }
@@ -227,7 +227,7 @@ input QuestionUpdateArgs {
 
 input QuestionCreateInput {
   question: String
-  answer: Boolean
+  isFact: Boolean
   correctResponse: String
   incorrectResponse: String
 }
@@ -352,6 +352,43 @@ input TagCreateInput {
   posts: PostRelateToManyForCreateInput
 }
 
+type Game_Explanation {
+  id: ID!
+  explanation: Game_Explanation_explanation_Document
+}
+
+type Game_Explanation_explanation_Document {
+  document(hydrateRelationships: Boolean! = false): JSON!
+}
+
+input Game_ExplanationWhereUniqueInput {
+  id: ID
+}
+
+input Game_ExplanationWhereInput {
+  AND: [Game_ExplanationWhereInput!]
+  OR: [Game_ExplanationWhereInput!]
+  NOT: [Game_ExplanationWhereInput!]
+  id: IDFilter
+}
+
+input Game_ExplanationOrderByInput {
+  id: OrderDirection
+}
+
+input Game_ExplanationUpdateInput {
+  explanation: JSON
+}
+
+input Game_ExplanationUpdateArgs {
+  where: Game_ExplanationWhereUniqueInput!
+  data: Game_ExplanationUpdateInput!
+}
+
+input Game_ExplanationCreateInput {
+  explanation: JSON
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -388,6 +425,12 @@ type Mutation {
   updateTags(data: [TagUpdateArgs!]!): [Tag]
   deleteTag(where: TagWhereUniqueInput!): Tag
   deleteTags(where: [TagWhereUniqueInput!]!): [Tag]
+  createGame_Explanation(data: Game_ExplanationCreateInput!): Game_Explanation
+  createGameExplanations(data: [Game_ExplanationCreateInput!]!): [Game_Explanation]
+  updateGame_Explanation(where: Game_ExplanationWhereUniqueInput!, data: Game_ExplanationUpdateInput!): Game_Explanation
+  updateGameExplanations(data: [Game_ExplanationUpdateArgs!]!): [Game_Explanation]
+  deleteGame_Explanation(where: Game_ExplanationWhereUniqueInput!): Game_Explanation
+  deleteGameExplanations(where: [Game_ExplanationWhereUniqueInput!]!): [Game_Explanation]
   endSession: Boolean!
   authenticateUserWithPassword(email: String!, password: String!): UserAuthenticationWithPasswordResult
   createInitialUser(data: CreateInitialUserInput!): UserAuthenticationWithPasswordSuccess!
@@ -426,6 +469,9 @@ type Query {
   tag(where: TagWhereUniqueInput!): Tag
   tags(where: TagWhereInput! = {}, orderBy: [TagOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: TagWhereUniqueInput): [Tag!]
   tagsCount(where: TagWhereInput! = {}): Int
+  game_Explanation(where: Game_ExplanationWhereUniqueInput!): Game_Explanation
+  gameExplanations(where: Game_ExplanationWhereInput! = {}, orderBy: [Game_ExplanationOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: Game_ExplanationWhereUniqueInput): [Game_Explanation!]
+  gameExplanationsCount(where: Game_ExplanationWhereInput! = {}): Int
   keystone: KeystoneMeta!
   authenticatedItem: AuthenticatedItem
 }

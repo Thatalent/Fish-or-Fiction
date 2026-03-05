@@ -12,6 +12,9 @@ import main_bg from '../images-videos/main-bg.mp4';
 import SideBar from '../components/SideBar';
 // App.tsx
 import { MenuType } from '../types';
+import { GET_GAME_EXPLANATIONS } from '../graphql/queries';
+
+import { DocumentRenderer } from '@keystone-6/document-renderer';
 
 // Example GraphQL query - replace with your actual schema
 // const GET_FISH_QUESTIONS = gql`
@@ -38,9 +41,10 @@ function Home({
   activeMenu,
 }: HomeProps) {
   // const { loading, error, data } = useQuery(GET_FISH_QUESTIONS)
+  const { loading, error, data } = useQuery(GET_GAME_EXPLANATIONS)
 
-  // if (loading) return <Typography>Loading...</Typography>
-  // if (error) return <Typography color="error">Error: {error.message}</Typography>
+  if (loading) return <Typography>Loading...</Typography>
+  if (error) return <Typography color="error">Error: {error.message}</Typography>
 
   return (
     <>
@@ -73,6 +77,7 @@ function Home({
         pos={'right-0 top-[241px]'}
         activeMenu={activeMenu}
       />
+      <DocumentRenderer document={data.gameExplanations[0].explanation.document} />;
     </>
   );
 }
