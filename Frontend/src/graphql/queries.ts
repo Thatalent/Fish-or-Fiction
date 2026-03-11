@@ -54,3 +54,13 @@ export const UPDATE_WILDLAND = gql`
     }
   }
 `
+
+export const GET_GAME_EXPLANATIONS = gql`
+query GameExplanations {
+  gameExplanations {
+    id
+    explanation {
+      document
+    }
+  }
+}`
