@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
 import Home from './pages/Home';
+import GameModeExplanation from './pages/GameModeExplanation';
 
 import { useState } from 'react';
 import SettingsMenu from './components/SettingsMenu';
@@ -36,11 +37,12 @@ function App() {
               />
             }
           />
+          <Route path="/game-mode-explanation" element={<GameModeExplanation />} />
         </Routes>
       </Box>
 
       <SettingsMenu isMenuOpen={activeMenu === 'settings'} />
-      <HelpMenu isMenuOpen={activeMenu === 'help'} />
+      <HelpMenu isMenuOpen={activeMenu === 'help'}  setActiveMenu={setActiveMenu}/>
     </>
   );
 }

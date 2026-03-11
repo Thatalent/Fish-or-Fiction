@@ -173,4 +173,14 @@ export const lists = {
       posts: relationship({ ref: 'Post.tags', many: true }),
     },
   }),
+  Game_Explanation: list({
+    access: allowAll,
+    fields: {
+      explanation: document({
+        formatting: true,
+        dividers: true,
+        links: true,
+    }),
+    },
+  }),
 } satisfies Lists

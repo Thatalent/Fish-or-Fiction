@@ -13,6 +13,8 @@ import SideBar from '../components/SideBar';
 // App.tsx
 import { MenuType } from '../types';
 
+
+
 // Example GraphQL query - replace with your actual schema
 // const GET_FISH_QUESTIONS = gql`
 //   query GetFishQuestions {
@@ -37,10 +39,6 @@ function Home({
   handleSettingsMenuToggle,
   activeMenu,
 }: HomeProps) {
-  // const { loading, error, data } = useQuery(GET_FISH_QUESTIONS)
-
-  // if (loading) return <Typography>Loading...</Typography>
-  // if (error) return <Typography color="error">Error: {error.message}</Typography>
 
   return (
     <>

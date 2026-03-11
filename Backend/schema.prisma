@@ -28,7 +28,7 @@ model Footer {
 model Question {
   id                String  @id @default(cuid())
   question          String  @default("")
-  answer            Boolean @default(false)
+  isFact            Boolean @default(false)
   correctResponse   String  @default("")
   incorrectResponse String  @default("")
 }
@@ -55,4 +55,9 @@ model Tag {
   id    String @id @default(cuid())
   name  String @default("")
   posts Post[] @relation("Post_tags")
+}
+
+model Game_Explanation {
+  id          String @id @default(cuid())
+  explanation Json   @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
 }
